@@ -22,7 +22,7 @@ RUN pip install phonemizer torch torchaudio
 # Install TTS-Server from the repository
 RUN pip install git+https://github.com/lxe/tts-server.git
 
-RUN python -m nltk.downloader punkt
+RUN python3 -m nltk.downloader punkt
 
 # Make port 5050 available to the world outside this container
 EXPOSE 5050
