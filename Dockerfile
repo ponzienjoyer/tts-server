@@ -28,4 +28,4 @@ RUN python3 -m nltk.downloader punkt
 EXPOSE 5050
 
 # Run tts_server.server when the container launches
-CMD ["python3", "-m", "tts_server.server"]
+CMD ["python3", "-m", "tts_server.server", "--host", "0.0.0.0"]
