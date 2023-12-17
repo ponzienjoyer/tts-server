@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python3 -m pip install --upgrade pip
 
 # Install Python dependencies
-RUN pip install phonemizer torch torchaudio
+RUN pip install espeak-phonemizer
+RUN pip install torch torchaudio --extra-index-url https://download.pytorch.org/whl/cu121 
 
 # Install TTS-Server from the repository
 RUN pip install git+https://github.com/lxe/tts-server.git
