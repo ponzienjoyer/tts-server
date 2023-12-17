@@ -47,6 +47,7 @@ def text_to_speech():
 
         data = request.json
         session = data.get('session')
+        seed = data.get('seed')
         text = data.get('text')
 
         # Check if session and text are provided
@@ -72,8 +73,11 @@ def text_to_speech():
         vkey = f"{session}/{voice}"
         prev_s = prev_s_db.get(vkey, None)
         
-        # Set random seed
-        tts.set_seed(hash(session))
+        if (seed):
+            tts.set_seed(int(seed)) 
+        else:
+            # Set random seed
+            tts.set_seed(hash(session))
 
         # Generate audio
         wav, prev_s = tts.inference(
